@@ -24,9 +24,9 @@ public class RoofMesh implements MeshInterface {
     private ByteBuffer verticesByteBuffer;
     private VertexData[] vertices;
     private String textureName;
+    private Integer buildingBodyHeight;
 
-
-    public RoofMesh()
+    public RoofMesh(int height)
     {
         this.indicesVBO = 0;
         this.meshVAO = 0;
@@ -34,6 +34,7 @@ public class RoofMesh implements MeshInterface {
         this.indicesCount = 0;
         this.verticesByteBuffer = null;
         this.textureName = "concrete1";
+        this.buildingBodyHeight = height;
 
         init();
     }
@@ -45,13 +46,13 @@ public class RoofMesh implements MeshInterface {
 
         // We'll define our quad using 4 vertices of the custom 'TexturedVertex' class
         VertexData v0 = new VertexData();
-        v0.setXYZ(-0.5f, 0.5f, -0.5f); v0.setRGB(1, 0, 0); v0.setST(0, 0);
+        v0.setXYZ(-0.5f, MeshManager.groundLevel + this.buildingBodyHeight, -0.5f); v0.setRGB(1, 0, 0); v0.setST(0, 0);
         VertexData v1 = new VertexData();
-        v1.setXYZ(0.5f, 0.5f, -0.5f); v1.setRGB(0, 1, 0); v1.setST(1, 0);
+        v1.setXYZ(0.5f, MeshManager.groundLevel + this.buildingBodyHeight, -0.5f); v1.setRGB(0, 1, 0); v1.setST(1, 0);
         VertexData v2 = new VertexData();
-        v2.setXYZ(-0.5f, 0.5f, 0.5f); v2.setRGB(0, 0, 1); v2.setST(0, 1);
+        v2.setXYZ(-0.5f, MeshManager.groundLevel + this.buildingBodyHeight, 0.5f); v2.setRGB(0, 0, 1); v2.setST(0, 1);
         VertexData v3 = new VertexData();
-        v3.setXYZ(0.5f, 0.5f, 0.5f); v3.setRGB(1, 1, 1); v3.setST(1, 1);
+        v3.setXYZ(0.5f, MeshManager.groundLevel + this.buildingBodyHeight, 0.5f); v3.setRGB(1, 1, 1); v3.setST(1, 1);
 
         this.vertices = new VertexData[] {v0, v1, v2, v3};
 

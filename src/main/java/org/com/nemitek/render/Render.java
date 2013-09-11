@@ -50,9 +50,9 @@ public class Render {
     public static void init()
     {
         setupOpenGL();
-        MeshManager.buildingSegment0 = new BuildingSegment();
+        MeshManager.buildingBody0 = new BuildingBodyMesh(3);
         MeshManager.groundMesh = new GroundMesh();
-        MeshManager.roofMesh = new RoofMesh();
+        MeshManager.roofMesh = new RoofMesh(3);
         setupShaders();
         setupMatrices();
 
@@ -218,7 +218,7 @@ public class Render {
 
         GL20.glUseProgram(pId);
 
-        MeshManager.buildingSegment0.render();
+        MeshManager.buildingBody0.render();
         MeshManager.groundMesh.render();
         MeshManager.roofMesh.render();
 
@@ -243,7 +243,7 @@ public class Render {
         GL20.glUseProgram(0);
         GL20.glDeleteProgram(pId);
 
-        MeshManager.buildingSegment0.close();
+        MeshManager.buildingBody0.close();
         MeshManager.groundMesh.close();
         MeshManager.roofMesh.close();
 

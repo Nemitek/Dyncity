@@ -16,7 +16,7 @@ import java.nio.FloatBuffer;
  * Time: 12:57 AM
  * To change this template use File | Settings | File Templates.
  */
-public class BuildingSegment implements MeshInterface {
+public class BuildingBodyMesh implements MeshInterface {
     private Integer indicesVBO;
     private Integer meshVAO;
     private Integer meshVBO;
@@ -24,6 +24,7 @@ public class BuildingSegment implements MeshInterface {
     private ByteBuffer verticesByteBuffer;
     private VertexData[] vertices;
     private String textureName;
+    private Integer buildingBodyHeight;
 
     public String getTextureName() {
         return textureName;
@@ -33,7 +34,7 @@ public class BuildingSegment implements MeshInterface {
         this.textureName = textureName;
     }
 
-    public BuildingSegment()
+    public BuildingBodyMesh(int height)
     {
         this.indicesVBO = 0;
         this.meshVAO = 0;
@@ -41,6 +42,7 @@ public class BuildingSegment implements MeshInterface {
         this.indicesCount = 0;
         this.verticesByteBuffer = null;
         this.textureName = "building1_body";
+        this.buildingBodyHeight = height;
 
         init();
     }
@@ -78,25 +80,25 @@ public class BuildingSegment implements MeshInterface {
 
         // We'll define our quad using 4 vertices of the custom 'TexturedVertex' class
         VertexData v0 = new VertexData();
-        v0.setXYZ(-0.5f, 0.5f, 0.5f); v0.setRGB(1, 0, 0); v0.setST(0, 0);
+        v0.setXYZ(-0.5f, MeshManager.groundLevel + this.buildingBodyHeight, 0.5f); v0.setRGB(1, 0, 0); v0.setST(0, 0);
         VertexData v1 = new VertexData();
-        v1.setXYZ(0.5f, 0.5f, 0.5f); v1.setRGB(0, 1, 0); v1.setST(1, 0);
+        v1.setXYZ(0.5f, MeshManager.groundLevel + this.buildingBodyHeight, 0.5f); v1.setRGB(0, 1, 0); v1.setST(1, 0);
         VertexData v2 = new VertexData();
-        v2.setXYZ(-0.5f, -0.5f, 0.5f); v2.setRGB(0, 0, 1); v2.setST(0, 1);
+        v2.setXYZ(-0.5f, MeshManager.groundLevel, 0.5f); v2.setRGB(0, 0, 1); v2.setST(0, this.buildingBodyHeight);
         VertexData v3 = new VertexData();
-        v3.setXYZ(0.5f, -0.5f, 0.5f); v3.setRGB(1, 1, 1); v3.setST(1, 1);
+        v3.setXYZ(0.5f, MeshManager.groundLevel, 0.5f); v3.setRGB(1, 1, 1); v3.setST(1, this.buildingBodyHeight);
         VertexData v4 = new VertexData();
-        v4.setXYZ(0.5f, 0.5f, -0.5f); v4.setRGB(1, 1, 1); v4.setST(2, 0);
+        v4.setXYZ(0.5f, MeshManager.groundLevel + this.buildingBodyHeight, -0.5f); v4.setRGB(1, 1, 1); v4.setST(2, 0);
         VertexData v5 = new VertexData();
-        v5.setXYZ(0.5f, -0.5f, -0.5f); v5.setRGB(1, 1, 1); v5.setST(2, 1);
+        v5.setXYZ(0.5f, MeshManager.groundLevel, -0.5f); v5.setRGB(1, 1, 1); v5.setST(2, this.buildingBodyHeight);
         VertexData v6 = new VertexData();
-        v6.setXYZ(-0.5f, 0.5f, -0.5f); v6.setRGB(1, 1, 1); v6.setST(3, 0);
+        v6.setXYZ(-0.5f, MeshManager.groundLevel + this.buildingBodyHeight, -0.5f); v6.setRGB(1, 1, 1); v6.setST(3, 0);
         VertexData v7 = new VertexData();
-        v7.setXYZ(-0.5f, -0.5f, -0.5f); v7.setRGB(1, 1, 1); v7.setST(3, 1);
+        v7.setXYZ(-0.5f, MeshManager.groundLevel, -0.5f); v7.setRGB(1, 1, 1); v7.setST(3, this.buildingBodyHeight);
         VertexData v8 = new VertexData();
-        v8.setXYZ(-0.5f, 0.5f, 0.5f); v8.setRGB(1, 1, 1); v8.setST(4, 0);
+        v8.setXYZ(-0.5f, MeshManager.groundLevel + this.buildingBodyHeight, 0.5f); v8.setRGB(1, 1, 1); v8.setST(4, 0);
         VertexData v9 = new VertexData();
-        v9.setXYZ(-0.5f, -0.5f, 0.5f); v9.setRGB(1, 1, 1); v9.setST(4, 1);
+        v9.setXYZ(-0.5f, MeshManager.groundLevel, 0.5f); v9.setRGB(1, 1, 1); v9.setST(4, this.buildingBodyHeight);
 
         this.vertices = new VertexData[] {v0, v1, v2, v3, v4, v5, v6, v7, v8, v9};
 
