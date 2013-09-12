@@ -26,6 +26,16 @@ public class BuildingBodyMesh implements MeshInterface {
     private String textureName;
     private Integer buildingBodyHeight;
 
+    public Integer getBuildingBodyHeight() {
+        return buildingBodyHeight;
+    }
+
+    public void setBuildingBodyHeight(Integer buildingBodyHeight) {
+        this.close();
+        this.buildingBodyHeight = buildingBodyHeight;
+        this.init();
+    }
+
     public String getTextureName() {
         return textureName;
     }
@@ -47,6 +57,7 @@ public class BuildingBodyMesh implements MeshInterface {
         init();
     }
 
+    @Override
     public void render()
     {
         // Bind the texture
@@ -73,7 +84,7 @@ public class BuildingBodyMesh implements MeshInterface {
         GL30.glBindVertexArray(0);
     }
 
-    public void init() {
+    private void init() {
         // Load textures
         TextureManager.addTexture(getClass().getResourceAsStream("/assets/images/building1_body.png"), GL13.GL_TEXTURE0, "building1_body");
         TextureManager.addTexture(getClass().getResourceAsStream("/assets/images/stGrid2.png"), GL13.GL_TEXTURE0, "stGrid2");
@@ -161,6 +172,7 @@ public class BuildingBodyMesh implements MeshInterface {
         GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, 0);
     }
 
+    @Override
     public void close()
     {
         // Select the VAO

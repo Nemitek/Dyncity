@@ -79,10 +79,10 @@ public class Input {
             // Switch textures depending on the key released
             switch (Keyboard.getEventKey()) {
                 case Keyboard.KEY_1:
-                    MeshManager.buildingBody0.setTextureName("building1_body");
+                    MeshManager.buildingMesh.getBody().setTextureName("building1_body");
                     break;
                 case Keyboard.KEY_2:
-                    MeshManager.buildingBody0.setTextureName("stGrid2");
+                    MeshManager.buildingMesh.getBody().setTextureName("stGrid2");
                     break;
             }
         }

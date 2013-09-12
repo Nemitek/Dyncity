@@ -8,7 +8,6 @@ package org.com.nemitek.render.interfaces;
  * To change this template use File | Settings | File Templates.
  */
 public interface MeshInterface {
-    public void init();
     public void render();
     public void close();
 }

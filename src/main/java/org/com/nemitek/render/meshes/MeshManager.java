@@ -9,8 +9,7 @@ package org.com.nemitek.render.meshes;
  */
 public class MeshManager {
     public static GroundMesh groundMesh;
-    public static BuildingBodyMesh buildingBody0;
-    public static RoofMesh roofMesh;
+    public static BuildingMesh buildingMesh;
     public static Float groundLevel = -0.5f;
 
 

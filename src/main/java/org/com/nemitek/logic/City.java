@@ -9,4 +9,8 @@ package org.com.nemitek.logic;
  */
 public class City {
 
+    public void generateRandomCity()
+    {
+
+    }
 }

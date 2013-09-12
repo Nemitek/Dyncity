@@ -38,8 +38,7 @@ public class GroundMesh implements MeshInterface {
         init();
     }
 
-    @Override
-    public void init() {
+    private void init() {
         // Load textures
         TextureManager.addTexture(getClass().getResourceAsStream("/assets/images/concrete2_seamless.png"), GL13.GL_TEXTURE0, "concrete2_seamless");
 

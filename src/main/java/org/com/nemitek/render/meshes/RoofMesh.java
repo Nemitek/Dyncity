@@ -26,6 +26,16 @@ public class RoofMesh implements MeshInterface {
     private String textureName;
     private Integer buildingBodyHeight;
 
+    public Integer getBuildingBodyHeight() {
+        return buildingBodyHeight;
+    }
+
+    public void setBuildingBodyHeight(Integer buildingBodyHeight) {
+        this.close();
+        this.buildingBodyHeight = buildingBodyHeight;
+        this.init();
+    }
+
     public RoofMesh(int height)
     {
         this.indicesVBO = 0;
@@ -39,8 +49,7 @@ public class RoofMesh implements MeshInterface {
         init();
     }
 
-    @Override
-    public void init() {
+    private void init() {
         // Load textures
         TextureManager.addTexture(getClass().getResourceAsStream("/assets/images/concrete1.png"), GL13.GL_TEXTURE0, "concrete1");
 
